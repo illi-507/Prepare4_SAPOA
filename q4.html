@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+  
+   .container{   
+       display:grid;       
+      
+       display: flex;
+       justify-content: flex-end;
+       height:70vh;
+       width:70vw;
+   }
+   .title{
+       display: flex;
+       justify-content: flex-end;
+       height:3vh;
+       width:70vw;
+       border-color:red;       
+       font-family: "Lucida" Grande, sans-serif;
+       color:green;
+   }
+   
+   body{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       height:100vh;
+       flex-direction: column;
+      
+   }
+   th,td {
+   border: 1px solid black;
+   }
+   td,th{
+       height:10vh;
+
+   }
+   
+   th{ 
+       width:20%;
+       color:white;
+       background-color: orangered;
+   }
+   </style>
+</head>
+<body>
+    <div class="title">
+    <div >Invoice #1234567</div>
+    
+    </div>
+
+    <div class="container" >
+        <table style="width:100%; height:100%;">
+            <tr id = "row1">
+              <th>Item</th>
+              <th >     </th>
+              <th >Quality</th>
+              <th >Unit Price</th>
+              <th >Cost</th>
+            </tr>
+            
+            <tr id = "row2">
+                <td >Joey's</td>            
+                 <td>
+                   <table>
+                       <tr><td>Fisherman</td></tr>
+                       <tr><td style="width:1%;">Stuffed Clam Choweder</td></tr>                     
+                   </table>                  
+                </td>
+      
+                <td>
+                  <table>
+                      <tr>
+                          <td style="width:1%">January</td>
+                        </tr>
+                        <tr><td >January</td></tr>
+                  </table>                  
+               </td>
+      
+               <td>
+                  <table>
+                      <tr><td>$ 20</td></tr>
+                      <tr><td style="width:1%;">$ 15</td></tr>
+                  </table>                  
+               </td>
+      
+               <td>
+                  <table>
+                      <tr><td>$ 20.00</td></tr>
+                      <tr><td style="width:1%;">$ 15.00</td></tr>
+                  </table>                  
+               </td>
+              </tr>
+
+        <tr id = "row3">
+        <td>Mushroom Soup</td>    
+        <td></td>    
+        <td>1</td>    
+        <td>$ 10</td>   
+        <td>$ 10.00</td>     
+        </tr>
+      
+        <tr id = "row4">
+            <td></td>    
+            <td></td>    
+            <td>Total</td>    
+            <td></td>   
+            <td>$ 45.00</td>     
+            </tr>
+
+        <tr id = "row5">
+                <td></td>    
+                <td></td>    
+                <td>Tax @ 7%</td>    
+                <td></td>   
+                <td>$ 3.15</td>     
+        </tr>  
+        <tr id = "row6">
+                    <td>Grand Total 14 October,2003</td>    
+                    <td></td>    
+                    <td></td>    
+                    <td></td>   
+                    <td>$ 48.18</td>     
+         </tr>  
+
+      
+    </div>
+    
+</body>
+</html>

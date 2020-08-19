@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+   function checkName(){
+       var length = document.forms["myForm"]["name"].value.length;
+       if(length==0){
+         var text = "Please enter username";
+     //    document.getElementById("name").innerHTML = text;
+         return false;
+       }
+       else{
+      //  document.getElementById("name").innerHTML = "";
+        return true;
+       }     
+       
+   }
+  function checkPassword(){
+      var pass = document.forms["myForm"]["password"].value;
+       var length = pass.length;
+       var sum =0;
+       if(length>12 || length<8){
+          
+    //    document.getElementById("password").innerHTML = "Should contain 8 - 12 characters;";
+       }
+       else{
+        //console.log("match condition 1");
+           sum+=1;
+     //   document.getElementById("password").innerHTML = "";
+       }     
+        
+       var firstChar = pass.charAt(0);
+       function hasLowerCase(str) {
+           return (/[a-z]/.test(str));
+            }
+         function hasloweruppernumber(str){
+             return (/[A-Z]/.test(str)) &&(/[a-z]/.test(str)) &&(/[0-9]/.test(str));
+         }   
+       if(hasLowerCase(firstChar)){
+           sum+=1;        
+       }
+       else{       
+     //   document.getElementById("password").innerHTML = "The first letter should be lowercase;";
+       }
+       
+       if(hasloweruppernumber(pass)){
+           sum+=1;       
+       }       
+       if(sum ==3){
+       
+           return true;
+       }
+       else{
+           return false;
+       }
+       
+  }
+
+  function checkCPassword(){
+      var pass = document.forms["myForm"]["password"].value;
+      var cPassword = document.forms["myForm"]["cpassword"].value;
+
+      if( pass!= cPassword ||pass.length==0){
+        //console.log("Not Confirm!");
+          return false;
+      }
+      else if(pass.length>0 ){
+          //console.log("Confirm!");
+          return true;
+      }
+  }
+
+  function checkBirth(){
+    var birth = document.forms["myForm"]["birth"].value;
+    if(birth.length ==0){
+        return false;
+    }   
+    var year = birth.substring(0,4);  
+    var currentYear = new Date().getFullYear();
+
+    if(currentYear -year>=18){  
+       
+        return true;
+    }
+    else{   
+        return false;
+    }
+    return false;
+  }
+
+  function finishFilling(){
+      console.log("Name: ",checkName());
+      console.log("Password: ",checkPassword());
+      console.log(checkCPassword());
+      console.log(checkBirth());
+      if(!checkBirth()){
+         document.getElementById("birthFail").innerHTML = " Birth fail;";
+      }else{
+        document.getElementById("birthFail").innerHTML = "";
+      }
+      if(!checkPassword()){
+         document.getElementById("passwordFail").innerHTML = " Password fail;";
+      }
+      else{
+        document.getElementById("passwordFail").innerHTML = "";
+      }
+      if(!checkCPassword()){
+         document.getElementById("cpasswordFail").innerHTML = " Confirm password fail;";
+      }
+      else{
+        document.getElementById("cpasswordFail").innerHTML = "";
+      }
+      if(!checkName()){
+         document.getElementById("usernameFail").innerHTML = " Username fail;";
+      }
+      else{
+        document.getElementById("usernameFail").innerHTML = "";
+      }
+      if(checkBirth() && checkPassword() &&checkCPassword() &&checkName()){
+        console.log("Submit succeed!");
+        alert("Submit succeed!");
+      }
+      else{
+          console.log("Submit failed!");
+      }
+  }
+</script>
+
+<body>
+    <div class="container">
+   <form name = "myForm" action = "/action_page.php">
+    <label for="username">Username:</label> <label style="color:red;">*</label>
+    <input type = "text" name ="name" required>
+   <!-- <button type = "button" onclick="checkName()" >Submit</button>-->
+    <p id="name"></p>
+
+    <label for="password">Password:</label>  <label style="color:red;">*</label>
+    <input type = "text" name ="password" required>
+   <!-- <button type = "button" onclick="checkPassword()" >Submit</button>-->
+    <p id="password"></p>
+    <div></div>
+
+    <label for="cpassword">Confirm Password:</label> 
+    <input type = "text" name ="cpassword" required>
+   <!-- <button type = "button" onclick="checkCPassword()" >Submit</button>-->
+    <p id="cpassword"></p>
+    <div></div>
+
+    <label for="email">Email: </label> 
+    <input type = "email" name ="email">
+  <!--  <button type = "button" >Submit</button>-->
+    <p id="email"></p>
+    <div></div>
+
+    <label for="birth">Date of Birth:</label>  <label style="color:red;">*</label>
+    <input type = "date" name ="birth" placeholder="yyyy-mm-dd">
+    <!--<button type = "button" onclick="checkBirth()" >Submit</button> --> 
+    <p id="birth"></p>    
+    <div></div>
+
+    <label for ="country">Country: </label>    
+    <input type = "text" name ="country" list ="datalist1">
+    <datalist id = "datalist1">
+        <option value = "China"></option>
+        <option value = "United States of America"></option>
+        <option value = "India"></option>
+        <option value = "Mexico"></option>
+        <option value = "Canda"></option>
+    </datalist> 
+    <br>
+    <button type= "button" onclick = "finishFilling()">Complete</button>
+    <p id = "usernameFail"></p>
+    <p id = "passwordFail"></p>
+    <p id = "cpasswordFail"></p>
+    <p id = "birthFail"></p>
+   </form> 
+   </div>
+
+</body>
+
+<style>
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:100vh;
+        width:100vw;
+    }
+</style>
+</html>
