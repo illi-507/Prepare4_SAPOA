@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .grid{
+        display: grid;
+        grid-column-gap: 50px;
+        grid-template-columns:auto auto auto;      
+    }
+    .col-4-12{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        justify-content: center;
+    } 
+    
+     .team .margin-bottom-2 {
+        color:teal;
+     }
+     .team .bold{
+        color:teal;
+     }
+    
+    a{
+        text-decoration: none;    
+    }
+
+    .button{
+        display: flex;
+        width:200px;
+        height:50px;         
+        align-items: center;        
+        justify-content: center;              
+    }
+    .teal{
+        background-color: teal;    
+        border-radius: 10px;
+        border: 2px solid white;  
+    }
+
+    .teal a{
+        color:white;
+    }
+      .margin-bottom-6{
+          margin-bottom: 6vh;
+      }
+    .organization{
+        border:5px solid #0984e3;
+        border-radius:10px;
+        padding:20px;
+    }
+    .organization .margin-bottom-2{
+        color:#0984e3;
+    }
+   
+    .organization .bold{
+        color:#0984e3;
+    }
+    .organization .stroke{        
+        border-radius: 10px;
+        border: 2px solid #0984e3;  
+       
+    }    
+    .organization a{
+        color:#0984e3;
+    }
+
+    .enterprise{
+        border:5px solid #4cd137;
+        border-radius:10px;
+        padding:20px;
+    }
+
+    .enterprise  .margin-bottom-2{
+        color:#4cd137;
+    }
+    .enterprise  .bold{
+        color:#4cd137;
+    }
+    
+    .enterprise .stroke{        
+        border-radius: 10px;
+        border: 2px solid #4cd137;  
+       
+    }    
+    .enterprise a{
+        color:#4cd137;
+    }
+
+    
+  </style> 
+<body>
+    <ul class = "grid">
+        <li class = "col-4-12">
+            <div class = "team col-4-12  padding-4">
+            <h5 class = "margin-bottom-2">EARLY ADOPTERS</h5>
+            <h2 class="bold">Starter</h2>
+            <p class="micro description margin-bottom-6">Up to 300 
+                candidate assessments<br>in a three month trial period
+            </p>
+             <div class="button teal">
+                 <a href="#" target="_blank">Choose Starter</a>
+             </div>
+            </div>
+        </li>
+
+        <li class = "col-4-12">
+            <div class = "organization col-4-12  padding-4">
+            <h5 class = "margin-bottom-2 io-grey-medium-light-text">
+                BILLED QUARTERLY</h5>
+            <h2 class="bold">Business</h2>
+            <p class="micro description margin-bottom-6">100
+                candidates per month<br>+$3 / additional assessment
+            </p>
+             <div class="button stroke">
+                 <a href="#" target="_blank">Choose Business</a>
+             </div>
+            </div>
+        </li>
+
+        <li class = "col-4-12">
+            <div class = "enterprise col-4-12  padding-4">
+            <h5 class = "margin-bottom-2 io-grey-medium-light-text">
+                BILLED QUARTERLY</h5>
+            <h2 class="bold">Business</h2>
+            <p class="micro description margin-bottom-6">100
+                candidates per month<br>+$3 / additional assessment
+            </p>
+             <div class="button stroke">
+                 <a href="#" target="_blank">Contact Us</a>
+             </div>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
