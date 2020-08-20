@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script>
+  var array=[];
+  let url1 = "http://jsonplaceholder.typicode.com/posts";
+  function clickButton(){
+      var index =  Math.floor(Math.random() * 4);
+      var boolean = true;
+      console.log("array1: ",array);
+      while(boolean){
+          var temp = Math.floor(Math.random() * 4);
+          if(index!= temp){
+            index =temp;
+            boolean = false;
+        document.getElementById("quote").innerHTML = array[index].quote;  
+        document.getElementById("author").innerHTML = "--"+array[index].author;
+          }
+      }
+      
+  }
+  fetch("./data.json")
+      .then(response=>response.json())
+      .then(data=>{
+        
+        console.log(data);
+        for(var i = 0; i <data.length;i++){
+          array.push(data[i]);
+        }
+        
+        clickButton();
+       
+      })
+      .catch(error => console.log(error));
+
+</script>
+
+<style>
+  body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height:100vh;
+      flex-direction: column;
+  }
+    .container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height:40vh;
+      width:40vw;
+      border:2px solid red;
+    }
+    .text{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size:20px;
+    }
+
+</style>
+<body>
+   <h4>the dummy data.json is :</h4>
+   <p>[{ "quote": "11111", "author":"author1"}, <br>
+    { "quote": "22222", "author":"author2" },<br>
+    { "quote": "33333", "author":"author3" },<br>
+    { "quote": "44444", "author":"author4" },<br>
+    { "quote": "55555", "author":"author5" }
+     ]</p>
+   <div class="container">
+   
+    <button style="font-size:60px;" onclick="clickButton()"><</button>
+    <div class="text">
+      <div id = "quote"></div>
+      <div id = "author"></div>
+    </div>
+    <button style="font-size:60px;" onclick="clickButton()">></button>
+   </div>
+   
+  
+</body>
+</html>
+
