@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display:flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: center;
+       height: 100vh;
+    }
+   .row{
+       display:flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: center;
+       height: 50vh;
+       width:80vw;
+       padding:10px;
+       border: 5px dashed gray;
+   }
+   .item{
+       width:60vw;
+        display:flex;
+       flex-direction: row;   
+       flex-wrap: wrap;    
+       
+   }
+    a{
+        text-decoration: none;
+        color:#2980b9;
+    }
+    .training-start-time{
+        font-size:20px;
+        width:10vw;
+    }
+    .headline{
+        width:40vw;
+    }
+
+    .training-data{
+        font-size:1px;
+        width:30vw;
+    }
+    .headline{
+        font-size:15px;
+    }
+</style>
+<body>
+<div class="row">
+<div class="item">
+<h2 class="h headline">Current Courses</h2>
+
+<div class="training-start-time">
+<div class="start-date-month">May</div> 
+<div class="start-date-day">26</div>
+</div>
+
+<div class="training-data">
+<a class="training-title" href="#" target="_self">An Introduction to Human Experience Management (HXM)</a>
+<div class="training-info">May 26 – June 24, 2020</div>
+<div class="training-type-info">E-learning</div>
+</div>
+
+
+</div>
+<div class="item">
+<h2 class="h headline">Upcoming Courses</h2>
+<div class="training-start-time">
+<div class="start-date-month">Jun</div><div class="start-date-day">22</div>
+</div>
+<div class="training-data">
+<a class="training-title" href="#" target="_self">This Is SAP Fieldglass</a>
+<div class="training-info">June 22 – July 21, 2020</div>
+<div class="training-type-info">E-learning</div>
+</div>
+</div>
+</div>
+</body>
+</html>

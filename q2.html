@@ -8,15 +8,17 @@
 <script>
   var array=[];
   let url1 = "http://jsonplaceholder.typicode.com/posts";
+  var index =  Math.floor(Math.random() * 4);
+     
   function clickButton(){
-      var index =  Math.floor(Math.random() * 4);
-      var boolean = true;
+    var boolean = true;
       console.log("array1: ",array);
       while(boolean){
           var temp = Math.floor(Math.random() * 4);
           if(index!= temp){
             index =temp;
             boolean = false;
+            console.log("new index: ",index);
         document.getElementById("quote").innerHTML = array[index].quote;  
         document.getElementById("author").innerHTML = "--"+array[index].author;
           }
@@ -51,9 +53,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height:40vh;
-      width:40vw;
-      border:2px solid red;
+      height:40%;
+      width:90%;
+      border:2px solid black;
+
     }
     .text{
       display: flex;
@@ -65,7 +68,7 @@
 
 </style>
 <body>
-   <h4>the dummy data.json is :</h4>
+   <h4>the dummy data.json file is :</h4>
    <p>[{ "quote": "11111", "author":"author1"}, <br>
     { "quote": "22222", "author":"author2" },<br>
     { "quote": "33333", "author":"author3" },<br>

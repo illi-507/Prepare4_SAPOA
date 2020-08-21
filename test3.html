@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+div {
+  
+  text-align: center;
+}
+
+h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0 10px;
+  margin-bottom: 5px;
+}
+
+code {
+  padding: 5px 0px;
+}
+
+.parent {
+    opacity: 0.8;
+      position: relative;
+  
+  width: 300px;
+  height: 300px;
+  margin: 8vw 10vw;    
+  color:white;
+
+  background-color: red;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.child {
+  opacity: 0.8;
+  
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  color:white;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.child1 {
+   
+  left: 0;
+  background-color: green;
+  top:200px;
+  left:20px;
+}
+
+.child2 {
+  left: 150px;
+  background-color: blue;
+  top:250px;
+  left:200px;
+}
+    </style>
+</head>
+
+
+<body>
+    
+<div class="parent">
+  <h2>Block 1</h2>
+ 
+</div>
+  <div class="child child1">
+    <h2>Block 2</h2>
+  </div>
+  <div class="child child2">
+    <h2>Block 3</h2>
+  
+</div>
+
+
+</body>
+</html>
