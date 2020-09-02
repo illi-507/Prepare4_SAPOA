@@ -11,8 +11,8 @@
         display: flex;
         align-items: start;
         justify-content: start;
-        height:250vh;
-        width:100vw;
+        height:100vh;
+        width:80vw;
     }
     .Submit{
         margin-top: 20px;
@@ -32,12 +32,10 @@
    function checkName(){
        var length = document.forms["myForm"]["name"].value.length;
        if(length==0){
-         var text = "Please enter username";
-     //    document.getElementById("name").innerHTML = text;
+         var text = "Please enter username";  
          return false;
        }
-       else{
-      //  document.getElementById("name").innerHTML = "";
+       else{ 
         return true;
        }     
        
@@ -46,14 +44,11 @@
       var pass = document.forms["myForm"]["password"].value;
        var length = pass.length;
        var sum =0;
-       if(length>12 || length<8){
-          
-    //    document.getElementById("password").innerHTML = "Should contain 8 - 12 characters;";
+       if(length>12 || length<8){          
+    
        }
-       else{
-        //console.log("match condition 1");
-           sum+=1;
-     //   document.getElementById("password").innerHTML = "";
+       else{        
+           sum+=1;     
        }     
         
        var firstChar = pass.charAt(0);
@@ -66,8 +61,7 @@
        if(hasLowerCase(firstChar)){
            sum+=1;        
        }
-       else{       
-     //   document.getElementById("password").innerHTML = "The first letter should be lowercase;";
+       else{            
        }
        
        if(hasloweruppernumber(pass)){
@@ -87,12 +81,11 @@
       var pass = document.forms["myForm"]["password"].value;
       var cPassword = document.forms["myForm"]["cpassword"].value;
 
-      if( pass!= cPassword ||pass.length==0){
-        //console.log("Not Confirm!");
+      if( pass!= cPassword ||pass.length==0){       
           return false;
       }
       else if(pass.length>0 ){
-          //console.log("Confirm!");
+       
           return true;
       }
   }
@@ -123,32 +116,35 @@
       if(!checkBirth()){
          document.getElementById("birthFail").innerHTML = " Birth invalid;";
       }else{
-        document.getElementById("birthFail").innerHTML = "";
+        document.getElementById("birthFail").innerHTML = "<span style='color:green; font-size: 20px;font-weight:bold'>&#10003;</span>";
       }
       if(!checkPassword()){
          document.getElementById("passwordFail").innerHTML = " Password invalid;";
       }
       else{
-        document.getElementById("passwordFail").innerHTML = "";
+        document.getElementById("passwordFail").innerHTML = "<span style='color:green; font-size: 20px;font-weight:bold'>&#10003;</span>";
       }
-      if(!checkCPassword()){
+      if(!checkCPassword()||!checkPassword()){
          document.getElementById("cpasswordFail").innerHTML = " Confirm password invalid;";
       }
       else{
-        document.getElementById("cpasswordFail").innerHTML = "";
+        document.getElementById("cpasswordFail").innerHTML = "<span style='color:green; font-size: 20px;font-weight:bold'>&#10003;</span>";
       }
       if(!checkName()){
          document.getElementById("usernameFail").innerHTML = " Username invalid;";
       }
       else{
-        document.getElementById("usernameFail").innerHTML = "";
+        document.getElementById("usernameFail").innerHTML = "<span style='color:green; font-size: 20px;font-weight:bold'>&#10003;</span>";
       }
       if(checkBirth() && checkPassword() &&checkCPassword() &&checkName()){
         console.log("Submit succeed!");
         alert("Sign up submit succeed!");
+        return true;
+
       }
       else{
           console.log("Submit failed!");
+          return false;
       }
   }
 </script>
@@ -156,39 +152,39 @@
 
 
 <body>
+   <p>(When all the required fields (<span style="color:red">*</span>) are filled, click "Submit" to start form validation)</p>
     <div class="container">
-   <form name = "myForm" action = "/action_page.php">
+    
+   <form name = "myForm" onSubmit="return finishFilling()">
     <label for="username">Username:</label> <label style="color:red;">*</label>
     <br>
-    <input type = "text" name ="name" required>
+    <input type = "text" name ="name" required><span style="color:red;" id = "usernameFail"></span>
   
     <p id="name"></p>
 
     <label for="password">Password:</label>  <label style="color:red;">*</label>
      <br>
-    <input type = "text" name ="password" required>
+    <input type = "text" name ="password" required><span style="color:red;" id = "passwordFail"></span>
  
     <p id="password"></p>
     <div></div>
 
     <label for="cpassword">Confirm Password:</label> 
      <br>
-    <input type = "text" name ="cpassword" required>
+    <input type = "text" name ="cpassword" required> <span style="color:red;" id = "cpasswordFail"></span>
    
     <p id="cpassword"></p>
     <div></div>
 
     <label for="birth">Date of Birth:</label>  <label style="color:red;">*</label>
      <br>
-    <input type = "date" name ="birth" placeholder="yyyy-mm-dd">
-    <!--<button type = "button" onclick="checkBirth()" >Submit</button> --> 
+    <input name ="birth" placeholder="yyyy-mm-dd" required><span style="color:red;" id = "birthFail"></span>   
     <p id="birth"></p>    
     <div></div>
     
     <label for="email">Email: </label> 
      <br>
-    <input type = "email" name ="email">
-  <!--  <button type = "button" >Submit</button>-->
+    <input type = "email" name ="email">  
     <p id="email"></p>
     <div></div>
 
@@ -203,11 +199,8 @@
         <option value = "Canda"></option>
     </datalist> 
     <br>
-    <button class="Submit" type= "button" onclick = "finishFilling()">Submit</button>
-    <p id = "usernameFail"></p>
-    <p id = "passwordFail"></p>
-    <p id = "cpasswordFail"></p>
-    <p id = "birthFail"></p>
+    <button class="Submit" type= "submit">Submit</button>  
+  
    </form> 
    </div>
 
