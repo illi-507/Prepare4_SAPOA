@@ -8,15 +8,17 @@
 <style>
    
      li{
-         width:33.3vw;
-       
+         width:33.3vw;       
      }
     .grid{
-        display: grid;
-     
+        display: grid;     
         grid-template-columns:auto auto auto;      
     }
-    
+    .io-grey-medium-light-text{
+        font-weight: medium;
+        color:lightgrey;
+    }
+
     .grid .col-4-12{    
         display: flex;
         flex-direction:column;
@@ -25,12 +27,10 @@
     } 
    
      .team {
-        padding:4vw;
+        
         color:teal;
      }
-     .margin-bottom-2{
-        margin-bottom:2em;
-     }
+     
      .team .bold{
         color:teal;
      }
@@ -55,19 +55,24 @@
     .teal a{
         color:white;
     }
-      .margin-bottom-6{
-          margin-bottom: 6vh;
-      }
-      
+    
     .organization{
         border:5px solid #0984e3;
-        padding:4vw;
+        
         
     }
-    .organization .margin-bottom-2{
-        margin-bottom:2px;
+    .padding-4{
+        padding:1.5rem;
+    }
+
+    margin-bottom-2{
+        margin-bottom:0.75rem;
     }
    
+    .margin-bottom-6{
+          margin-bottom: 2.25rem;
+      }
+      
     .organization .bold{
         color:#0984e3;
     }
@@ -82,13 +87,9 @@
 
     .enterprise{
         border:5px solid #4cd137;
-        padding:4vw;
-       
     }
 
-    .enterprise  .margin-bottom-2{
-        margin-bottom:2px;
-    }
+    
     .enterprise  .bold{
         color:#4cd137;
     }
