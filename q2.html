@@ -8,13 +8,13 @@
 <script>
   var array=[];
   let url1 = "http://jsonplaceholder.typicode.com/posts";
-  var index =  Math.floor(Math.random() * 4);
+  var index =  Math.floor(Math.random() * 5);
      
   function clickButton(){
     var boolean = true;
       console.log("array1: ",array);
       while(boolean){
-          var temp = Math.floor(Math.random() * 4);
+          var temp = Math.floor(Math.random() * 5);
           if(index!= temp){
             index =temp;
             boolean = false;
@@ -22,8 +22,7 @@
         document.getElementById("quote").innerHTML = array[index].quote;  
         document.getElementById("author").innerHTML = "--"+array[index].author;
           }
-      }
-      
+      }      
   }
   fetch("./data.json")
       .then(response=>response.json())
@@ -39,14 +38,54 @@
       })
       .catch(error => console.log(error));
 
-  var myObj;
-   myObj = {
+     
+   var myObj1;
+   myObj1 = {
      "quotes":[
      {
-        
+        "content":{
+          "firstLine":"The most beautiful things in",
+          "secondLine":"the world cannot be seen or",
+          "thirdLine":"touched, the are felt with the",
+          "forthLine":"heart",
+        },
+        "from":"The Little Prince",
+        "author":"-Antoine de Saint-Exupery,"
      }
    ]
    };
+
+   var myObj2;
+   myObj2 = {
+     "quotes":[
+     {
+        "content":{
+          "firstLine":"first line content",
+          "secondLine":"optional content",
+          "thirdLine":"optional content"
+        },
+        "from":"name of novel",
+        "author":"author1"
+     }
+   ]
+   };
+
+   var fullSet;
+   fullSet ={
+     1:myObj1
+   }
+   
+   console.log("myObj1 is :",myObj1.quotes[0].content.firstLine);
+   console.log("myObj1 is :",myObj1.quotes[0].from);
+   console.log("myObj1 is :",myObj1.quotes[0].author);
+   var index = 1;
+   console.log("fullSet is :",fullSet[index].quotes[0].author);
+
+   
+  /* console.log("myObj1 is :",myObj1.quotes.from);
+   console.log("myObj1 is :",myObj1.quotes.author);*/
+  //document.getElementById("test1").innerHTML = fullSet.myObj1["quotes"];
+
 </script>
 
 <style>
@@ -93,6 +132,7 @@
     <button style="font-size:60px;" onclick="clickButton()">></button>
    </div>
    
+   <p id="test1"></p>
   
 </body>
 </html>

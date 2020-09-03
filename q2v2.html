@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:100vh;
+        flex-direction: column;
+    }
+      .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:35%;      
+        width:500px; 
+        border:2px solid black;
+  
+      }
+      .content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size:20px;
+        color:#666;
+        width:90%;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif,fantasy;
+      }
+  
+      .line{
+          margin:10px;
+      }
+      .author{
+          margin-top:10px;
+          font-size:16px;
+          color: black;
+          font-family: Arial;
+      }
+      .button{
+          padding: 0;
+          border: none;
+          background: none;
+      }
+     
+</style>
+</head>
+<script>    
+   var myObj1 = {
+     "quotes":[
+     {
+        "content":{
+          "firstLine":"The most beautiful things in",
+          "secondLine":"the world cannot be seen or",
+          "thirdLine":"touched, the are felt with the",
+          "forthLine":"heart",
+        },
+        "from":"The Little Prince",
+        "author":"-Antoine de Saint-Exupery,"
+     }
+   ]
+   };
+
+   var myObj2 = {
+     "quotes":[
+     {   
+        "content":{
+          "firstLine":"Developer is the one who",
+          "secondLine":"creates bugs/defects mostly",
+          "thirdLine":"and working code rarely"
+        },
+        "from":"Adventures of an Indian Techie",
+        "author":"-Nipun Varma,"
+     }
+   ]
+   };
+
+   var myObj3 = {
+     "quotes":[
+     {   
+        "content":{
+          "firstLine":"User interface is the process",
+          "secondLine":"of shifting from chaotic complexity",
+          "thirdLine":"to elegant simplicity."
+        },
+        "from":"React Native for iOS Development",
+        "author":"-Akshat Paul,"
+     }
+   ]
+   };
+
+   var myObj4 = {
+     "quotes":[
+     {   
+        "content":{
+          "firstLine":"That's the thing about people who think ",
+          "secondLine":"they hate computers.What they really ",
+          "thirdLine":"hate is lousy programmers."
+        },
+        "from":"A Handbook of Agile Software Craftsmanship",
+        "author":"-Larry Niven"
+     }
+   ]
+   };
+
+   var myObj5 = {
+     "quotes":[
+     {   
+        "content":{
+          "firstLine":"Maintaining a consistent platform also helps",
+          "secondLine":"improve product support - a significant",
+          "thirdLine":"problem in the software industry."
+        },
+        "from":"",
+        "author":"-Bill Gates"
+     }
+   ]
+   };
+
+  var fullSet;
+   fullSet ={
+     1:myObj1,
+     2:myObj2,
+     3:myObj3,
+     4:myObj4,
+     5:myObj5
+   }
+
+  var index =  Math.floor(Math.random() * 5)+1;
+     
+  function clickButton(){
+    var boolean = true;
+  
+      while(boolean){
+          var temp = Math.floor(Math.random() * 5)+1;
+          if(index!= temp){
+            index =temp;
+            boolean = false;
+            console.log("new index: ",index);
+            var firstLine = fullSet[index].quotes[0].content.firstLine;
+            var secondLine = fullSet[index].quotes[0].content.secondLine;
+            var thirdLine = fullSet[index].quotes[0].content.thirdLine;
+            var author = fullSet[index].quotes[0].author;
+            var from =fullSet[index].quotes[0].from;
+        document.getElementById("firstLine").innerHTML = firstLine;  
+        document.getElementById("secondLine").innerHTML = secondLine;
+        document.getElementById("thirdLine").innerHTML = thirdLine;
+        document.getElementById("author").innerHTML = author;
+        document.getElementById("from").innerHTML = from; 
+          }
+      }      
+  }
+  
+  window.onload = function() {
+    clickButton();
+};
+ 
+</script>
+
+
+<body>
+   
+ 
+   <div class="container">
+  
+    <button class="button" style="font-size:60px;" onclick="clickButton()">&lt;</button>
+    <div class="content wholeText">
+        <div class="line" id="firstLine"></div>
+        <div class="line" id="secondLine"></div>
+        <div class="line" id="thirdLine"></div>
+        <p class="author"><span id="author"></span><span id="from"></span></p>      
+    </div>
+   
+    <button class="button" style="font-size:60px;" onclick="clickButton()">&gt;</button>
+  
+   </div>
+   
+   <p id="test1"></p>
+  
+</body>
+</html>
+
+
